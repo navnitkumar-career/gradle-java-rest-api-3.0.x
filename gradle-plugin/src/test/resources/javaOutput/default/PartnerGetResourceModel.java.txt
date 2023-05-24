@@ -1,0 +1,222 @@
+package org.acme.rest.v1.partner;
+
+import ch.silviowangler.rest.model.Identifiable;
+import ch.silviowangler.rest.model.ResourceModel;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
+import javax.annotation.Generated;
+import javax.money.MonetaryAmount;
+
+@Generated(
+    comments = "Specification filename: partner.v1.json",
+    value = "io.github.saw303.restapi"
+)
+public class PartnerGetResourceModel implements Serializable, ResourceModel, Identifiable<String> {
+  /**
+   * VOKey
+   */
+  private String id;
+
+  /**
+   * Partnername
+   */
+  private String name;
+
+  /**
+   * Partnervorname
+   */
+  private String vorname = "unbekannt";
+
+  /**
+   * Titel
+   */
+  private String titel;
+
+  /**
+   * Email des Partners
+   */
+  private String email;
+
+  /**
+   * Geburtsdatum
+   */
+  private LocalDate geburtsdatum = LocalDate.now();
+
+  /**
+   * Gewicht
+   */
+  private BigDecimal gewicht;
+
+  /**
+   * Lohn
+   */
+  private MonetaryAmount lohn;
+
+  /**
+   * Tags
+   */
+  private List<String> tags = new java.util.ArrayList<>();
+
+  /**
+   * Pflegeleistungsabrechnungspositionen
+   */
+  private List<BigDecimal> leistungsabrechnungspositionen = new java.util.ArrayList<>();
+
+  /**
+   * Locale des Partners
+   */
+  private Locale sprache;
+
+  /**
+   * Geschlecht des Partners
+   */
+  private GenderType gender;
+
+  /**
+   * Telefonnummer des Partners
+   */
+  private String telefon;
+
+  public PartnerGetResourceModel() {
+  }
+
+  public PartnerGetResourceModel(String id, String name, String vorname, String titel, String email,
+      LocalDate geburtsdatum, BigDecimal gewicht, MonetaryAmount lohn, List<String> tags,
+      List<BigDecimal> leistungsabrechnungspositionen, Locale sprache, GenderType gender,
+      String telefon) {
+    this.id = id;
+    this.name = name;
+    this.vorname = vorname;
+    this.titel = titel;
+    this.email = email;
+    this.geburtsdatum = geburtsdatum;
+    this.gewicht = gewicht;
+    this.lohn = lohn;
+    this.tags = tags;
+    this.leistungsabrechnungspositionen = leistungsabrechnungspositionen;
+    this.sprache = sprache;
+    this.gender = gender;
+    this.telefon = telefon;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getVorname() {
+    return this.vorname;
+  }
+
+  public void setVorname(String vorname) {
+    this.vorname = vorname;
+  }
+
+  public String getTitel() {
+    return this.titel;
+  }
+
+  public void setTitel(String titel) {
+    this.titel = titel;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public LocalDate getGeburtsdatum() {
+    return this.geburtsdatum;
+  }
+
+  public void setGeburtsdatum(LocalDate geburtsdatum) {
+    this.geburtsdatum = geburtsdatum;
+  }
+
+  public BigDecimal getGewicht() {
+    return this.gewicht;
+  }
+
+  public void setGewicht(BigDecimal gewicht) {
+    this.gewicht = gewicht;
+  }
+
+  public MonetaryAmount getLohn() {
+    return this.lohn;
+  }
+
+  public void setLohn(MonetaryAmount lohn) {
+    this.lohn = lohn;
+  }
+
+  public List<String> getTags() {
+    return this.tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
+  public List<BigDecimal> getLeistungsabrechnungspositionen() {
+    return this.leistungsabrechnungspositionen;
+  }
+
+  public void setLeistungsabrechnungspositionen(List<BigDecimal> leistungsabrechnungspositionen) {
+    this.leistungsabrechnungspositionen = leistungsabrechnungspositionen;
+  }
+
+  public Locale getSprache() {
+    return this.sprache;
+  }
+
+  public void setSprache(Locale sprache) {
+    this.sprache = sprache;
+  }
+
+  public GenderType getGender() {
+    return this.gender;
+  }
+
+  public void setGender(GenderType gender) {
+    this.gender = gender;
+  }
+
+  public String getTelefon() {
+    return this.telefon;
+  }
+
+  public void setTelefon(String telefon) {
+    this.telefon = telefon;
+  }
+
+  @Override
+  public boolean equals(Object other) {
+    if (this == other) return true;
+    if (! (other instanceof PartnerGetResourceModel)) return false;
+    PartnerGetResourceModel that = (PartnerGetResourceModel) other;
+    return Objects.equals(getId(), that.getId()) && Objects.equals(getName(), that.getName()) && Objects.equals(getVorname(), that.getVorname()) && Objects.equals(getTitel(), that.getTitel()) && Objects.equals(getEmail(), that.getEmail()) && Objects.equals(getGeburtsdatum(), that.getGeburtsdatum()) && Objects.equals(getGewicht(), that.getGewicht()) && Objects.equals(getLohn(), that.getLohn()) && Objects.equals(getTags(), that.getTags()) && Objects.equals(getLeistungsabrechnungspositionen(), that.getLeistungsabrechnungspositionen()) && Objects.equals(getSprache(), that.getSprache()) && Objects.equals(getGender(), that.getGender()) && Objects.equals(getTelefon(), that.getTelefon());
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, name, vorname, titel, email, geburtsdatum, gewicht, lohn, tags, leistungsabrechnungspositionen, sprache, gender, telefon);
+  }
+}

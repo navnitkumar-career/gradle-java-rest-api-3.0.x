@@ -1,0 +1,13 @@
+package org.acme.rest.v1.partner;
+
+import javax.annotation.Generated;
+
+@Generated(
+    comments = "Specification filename: partner.v1.json",
+    value = "io.github.saw303.restapi"
+)
+public enum GenderType {
+  MALE,
+
+  FEMALE
+}

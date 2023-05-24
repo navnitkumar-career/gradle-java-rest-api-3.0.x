@@ -1,0 +1,103 @@
+package org.acme.rest.v1.partner;
+
+import ch.silviowangler.rest.model.Identifiable;
+import ch.silviowangler.rest.model.ResourceModel;
+import java.io.Serializable;
+import java.util.Objects;
+import javax.annotation.Generated;
+
+@Generated(
+    comments = "Specification filename: partnersearch.v1.json",
+    value = "io.github.saw303.restapi"
+)
+public class PartnersearchGetResourceModel implements Serializable, ResourceModel, Identifiable<String> {
+  /**
+   * Eindeutige ID des Partners
+   */
+  private String id;
+
+  /**
+   * Name des Partners
+   */
+  private String name;
+
+  /**
+   * Vorname des Partners
+   */
+  private String vorname;
+
+  /**
+   * Partnernummer
+   */
+  private String partnerNummer;
+
+  /**
+   * Partnertype
+   */
+  private String partnerTyp;
+
+  public PartnersearchGetResourceModel() {
+  }
+
+  public PartnersearchGetResourceModel(String id, String name, String vorname, String partnerNummer,
+      String partnerTyp) {
+    this.id = id;
+    this.name = name;
+    this.vorname = vorname;
+    this.partnerNummer = partnerNummer;
+    this.partnerTyp = partnerTyp;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getVorname() {
+    return this.vorname;
+  }
+
+  public void setVorname(String vorname) {
+    this.vorname = vorname;
+  }
+
+  public String getPartnerNummer() {
+    return this.partnerNummer;
+  }
+
+  public void setPartnerNummer(String partnerNummer) {
+    this.partnerNummer = partnerNummer;
+  }
+
+  public String getPartnerTyp() {
+    return this.partnerTyp;
+  }
+
+  public void setPartnerTyp(String partnerTyp) {
+    this.partnerTyp = partnerTyp;
+  }
+
+  @Override
+  public boolean equals(Object other) {
+    if (this == other) return true;
+    if (! (other instanceof PartnersearchGetResourceModel)) return false;
+    PartnersearchGetResourceModel that = (PartnersearchGetResourceModel) other;
+    return Objects.equals(getId(), that.getId()) && Objects.equals(getName(), that.getName()) && Objects.equals(getVorname(), that.getVorname()) && Objects.equals(getPartnerNummer(), that.getPartnerNummer()) && Objects.equals(getPartnerTyp(), that.getPartnerTyp());
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, name, vorname, partnerNummer, partnerTyp);
+  }
+}

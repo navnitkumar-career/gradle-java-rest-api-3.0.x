@@ -1,0 +1,78 @@
+package org.acme.rest.v1.session.insurableperson.insuranceneeds.productproposal;
+
+import ch.silviowangler.rest.model.ResourceModel;
+import java.io.Serializable;
+import java.util.List;
+import java.util.Objects;
+import javax.annotation.Generated;
+import javax.money.MonetaryAmount;
+import javax.validation.constraints.NotNull;
+
+@Generated(
+    comments = "Specification filename: productproposal.v1.json",
+    value = "io.github.saw303.restapi"
+)
+public class ProductproposalPutResourceModel implements Serializable, ResourceModel {
+  /**
+   * list-element for product proposal
+   */
+  private List<ProposalType> proposal = new java.util.ArrayList<>();
+
+  /**
+   * premium total
+   */
+  private MonetaryAmount premiumTotal;
+
+  /**
+   * button 'add another person' pressed
+   */
+  @NotNull
+  private Boolean addAnotherPersonSelected;
+
+  public ProductproposalPutResourceModel() {
+  }
+
+  public ProductproposalPutResourceModel(List<ProposalType> proposal, MonetaryAmount premiumTotal,
+      Boolean addAnotherPersonSelected) {
+    this.proposal = proposal;
+    this.premiumTotal = premiumTotal;
+    this.addAnotherPersonSelected = addAnotherPersonSelected;
+  }
+
+  public List<ProposalType> getProposal() {
+    return this.proposal;
+  }
+
+  public void setProposal(List<ProposalType> proposal) {
+    this.proposal = proposal;
+  }
+
+  public MonetaryAmount getPremiumTotal() {
+    return this.premiumTotal;
+  }
+
+  public void setPremiumTotal(MonetaryAmount premiumTotal) {
+    this.premiumTotal = premiumTotal;
+  }
+
+  public Boolean getAddAnotherPersonSelected() {
+    return this.addAnotherPersonSelected;
+  }
+
+  public void setAddAnotherPersonSelected(Boolean addAnotherPersonSelected) {
+    this.addAnotherPersonSelected = addAnotherPersonSelected;
+  }
+
+  @Override
+  public boolean equals(Object other) {
+    if (this == other) return true;
+    if (! (other instanceof ProductproposalPutResourceModel)) return false;
+    ProductproposalPutResourceModel that = (ProductproposalPutResourceModel) other;
+    return Objects.equals(getProposal(), that.getProposal()) && Objects.equals(getPremiumTotal(), that.getPremiumTotal()) && Objects.equals(getAddAnotherPersonSelected(), that.getAddAnotherPersonSelected());
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(proposal, premiumTotal, addAnotherPersonSelected);
+  }
+}

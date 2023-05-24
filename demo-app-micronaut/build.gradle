@@ -1,0 +1,92 @@
+buildscript {
+
+    ext {
+        restApiVersion = '2.3.12'
+    }
+
+    repositories {
+        mavenLocal()
+        maven {
+          url = uri("https://maven.pkg.github.com/saw303/gradle-java-rest-api")
+          credentials {
+            username = project.findProperty("gpr.user") ?: System.getenv("GH_USERNAME")
+            password = project.findProperty("gpr.key") ?: System.getenv("GH_TOKEN")
+          }
+        }
+    }
+
+    dependencies {
+        classpath "ch.silviowangler.rest:gradle-java-rest-api:${restApiVersion}"
+    }
+}
+
+plugins {
+    id "io.spring.dependency-management" version "1.0.6.RELEASE"
+    id "com.github.johnrengelman.shadow" version "4.0.2"
+    id "net.ltgt.apt-eclipse" version "0.18"
+    id "net.ltgt.apt-idea" version "0.18"
+
+}
+
+apply plugin:"application"
+apply plugin:"java"
+apply plugin: 'ch.silviowangler.restapi'
+
+version "0.1"
+group "demo.app.micronaut"
+
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+      url = uri("https://maven.pkg.github.com/saw303/gradle-java-rest-api/")
+      credentials {
+        username = project.findProperty("gpr.user") ?: System.getenv("GH_USERNAME")
+        password = project.findProperty("gpr.key") ?: System.getenv("GH_TOKEN")
+      }
+    }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom 'io.micronaut:micronaut-bom:1.1.3'
+    }
+}
+
+dependencies {
+    annotationProcessor "io.micronaut:micronaut-inject-java"
+    annotationProcessor "io.micronaut:micronaut-validation"
+    implementation "io.micronaut:micronaut-inject"
+    implementation "io.micronaut:micronaut-validation"
+    implementation "io.micronaut.configuration:micronaut-hibernate-validator"
+    implementation "io.micronaut:micronaut-runtime"
+    implementation "io.micronaut:micronaut-http-client"
+    implementation "javax.annotation:javax.annotation-api"
+    implementation "io.micronaut:micronaut-http-server-netty"
+    compileOnly "io.micronaut:micronaut-inject-java"
+    implementation "ch.qos.logback:logback-classic:1.2.3"
+    testImplementation "junit:junit:4.12"
+    testImplementation "io.micronaut:micronaut-inject-java"
+    testImplementation "org.hamcrest:hamcrest-all:1.3"
+
+    implementation "ch.silviowangler.rest:rest-api-micronaut:${restApiVersion}"
+}
+
+shadowJar {
+    mergeServiceFiles()
+}
+
+run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1')
+
+mainClassName = "demo.app.micronaut.Application"
+tasks.withType(JavaCompile){
+    options.encoding = "UTF-8"
+    options.compilerArgs.add('-parameters')
+}
+
+restApi {
+    packageName = 'demo.app.micronaut'
+    targetFramework = ch.silviowangler.gradle.restapi.TargetFramework.MICRONAUT
+    optionsSource = file("${projectDir}/src/main/spec/v1")
+}

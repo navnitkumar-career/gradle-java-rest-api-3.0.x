@@ -1,0 +1,36 @@
+GET http://localhost:8080/v1/countries/
+
+###
+
+GET http://localhost:8080/v1/countries/CHE?expands=cities
+
+###
+
+GET http://localhost:8080/v1/countries/?expands=cities
+
+###
+
+GET http://localhost:8080/v1/countries/CHE/cities/ZH?expands=districts
+
+
+###
+
+GET http://localhost:8080/v1/countries/CHE/cities/ZH?expands=*
+
+###
+
+POST http://localhost:8080/v1/countries/
+Content-Type: application/json
+
+{
+  "name": "Super Island Country",
+  "foundationDate": "2019-01-08",
+  "surface": 200,
+  "coordinates": {
+    "longitude": 2,
+    "latitude": 3
+  },
+  "phoneNumber": null
+}
+
+###

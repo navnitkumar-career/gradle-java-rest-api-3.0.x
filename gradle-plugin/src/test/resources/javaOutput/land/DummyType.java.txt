@@ -1,0 +1,32 @@
+package org.acme.rest.v1;
+
+import java.io.Serializable;
+import javax.annotation.Generated;
+
+@Generated(
+    comments = "Specification filename: root.v1.json",
+    value = "io.github.saw303.restapi"
+)
+public class DummyType implements Serializable {
+  private DummyType.ColorType color;
+
+  public DummyType.ColorType getColor() {
+    return this.color;
+  }
+
+  public void setColor(DummyType.ColorType color) {
+    this.color = color;
+  }
+
+  @Generated(
+      comments = "Specification filename: root.v1.json",
+      value = "io.github.saw303.restapi"
+  )
+  public enum ColorType {
+    BLACK,
+
+    GREY,
+
+    WHITE
+  }
+}

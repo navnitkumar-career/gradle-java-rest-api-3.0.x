@@ -1,0 +1,38 @@
+package org.acme.rest.v1.laender.orte;
+
+import ch.silviowangler.rest.NotYetImplementedException;
+import ch.silviowangler.rest.types.IdType;
+import java.util.Collection;
+import javax.ws.rs.core.Response;
+
+public class OrtResourceImpl implements OrtResource {
+  @Override
+  public Response deleteEntity(String id, String land) {
+    throw new NotYetImplementedException();
+  }
+
+  @Override
+  public Collection<OrtGetResourceModel> getCollection(String land) {
+    throw new NotYetImplementedException();
+  }
+
+  @Override
+  public OrtGetResourceModel getEntity(String id, String land) {
+    throw new NotYetImplementedException();
+  }
+
+  @Override
+  public Response getEntityJpeg(String id, String land) {
+    throw new NotYetImplementedException();
+  }
+
+  @Override
+  public IdType createEntity(OrtPostResourceModel model, String land) {
+    throw new NotYetImplementedException();
+  }
+
+  @Override
+  public IdType updateEntity(OrtPutResourceModel model, String id, String land) {
+    throw new NotYetImplementedException();
+  }
+}
